@@ -1,11 +1,12 @@
-# See https://github.com/mar10/webtrees
+# See https://github.com/lomadi/app-webtrees/tree/master/images/webtrees
 
-# We borrow the base from here: https://github.com/tutumcloud/lamp/blob/master/Dockerfile
-FROM tutum/lamp:latest
-MAINTAINER mar10 <mar10@wwwwendt.de>
+
+FROM nginx
+MAINTAINER lomadi <lomadi@mac.com>
 
 # The base container added a symlink: 'ln -s /app /var/www/html'
 # so we can unzip webtrees to /app
+
 RUN apt-get update
 RUN apt-get -y install wget
 RUN apt-get -y install unzip
