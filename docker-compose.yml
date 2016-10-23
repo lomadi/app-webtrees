@@ -1,0 +1,39 @@
+version: '2'
+services:
+
+  webtrees:
+    image:  lomadi/webtrees:latest
+    container_name:  webtrees
+    links:
+      - webtrees-database:webtrees
+    ports:
+      - "10080:80"
+    depends_on:
+      - webtrees-database
+      - webtrees-data-volumes
+    volumes_from: 
+      - webtrees-data-volumes
+    environment: 
+       WORDPRESS_DB_HOST: webtrees-database:3306
+       WORDPRESS_DB_PASSWORD: must$not$change
+       
+  webtrees-database:
+    image: mysql
+    container_name: webtrees-database:
+    user: root
+    environment:
+      - MYSQL_ROOT_PASSWORD=must$not$change
+      - MYSQL_DATABASE=webtrees
+      - MYSQL_USER=webtrees
+      - MYSQL_PASSWORD=must$not$change
+    volumes_from: 
+      - webtrees-data-volumes
+    depends_on:
+      - webtrees-data-volumes
+
+  webtrees-data-volumes:
+    image: busybox
+    container_name: webtrees-data-volumes
+    volumes:
+      - /Users/mue/dockerdata/webtrees/var/lib/mysql:/var/lib/mysql
+      8090
