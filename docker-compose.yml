@@ -15,17 +15,17 @@ services:
       - webtrees-data-volumes
     environment: 
        WORDPRESS_DB_HOST: webtrees-database:3306
-       WORDPRESS_DB_PASSWORD: must$not$change
+       WORDPRESS_DB_PASSWORD: mustNotChange
        
   webtrees-database:
     image: mysql
-    container_name: webtrees-database:
+    container_name: webtrees-database
     user: root
     environment:
-      - MYSQL_ROOT_PASSWORD=must$not$change
+      - MYSQL_ROOT_PASSWORD=mustNotChange
       - MYSQL_DATABASE=webtrees
       - MYSQL_USER=webtrees
-      - MYSQL_PASSWORD=must$not$change
+      - MYSQL_PASSWORD=mustNotChange
     volumes_from: 
       - webtrees-data-volumes
     depends_on:
@@ -36,4 +36,3 @@ services:
     container_name: webtrees-data-volumes
     volumes:
       - /Users/mue/dockerdata/webtrees/var/lib/mysql:/var/lib/mysql
-      8090
