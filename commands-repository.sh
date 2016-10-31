@@ -1,5 +1,4 @@
 docker ps -aq
-
 docker rm  $(docker ps -aq)
 
 docker build -t lomadi/webtrees .
@@ -14,7 +13,12 @@ docker logs webtrees
 docker exec -it webtrees /bin/bash
 
 
+# DB 
+docker exec -it webtrees-database /bin/bash
+mysqldump --all-databases > dump.sql
+mysql -u webtrees -p  
+
 use webtrees;
 show tables;
-
 select * from wt_user ;
+
