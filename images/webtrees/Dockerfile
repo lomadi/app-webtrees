@@ -26,7 +26,7 @@ RUN buildDeps=" \
 
 
 WORKDIR /var/www/html/
-RUN wget https://launchpad.net/webtrees/1.7/1.7.2/+download/webtrees-1.7.2.zip
+RUN wget https://launchpad.net/webtrees/1.7/1.7.8/+download/webtrees-1.7.8.zip
 RUN unzip webtrees-*.zip
 RUN chown -R www-data:www-data  /var/www/html
 RUN rm webtrees-*.zip
@@ -35,6 +35,6 @@ ADD scripts /opt/scripts
 WORKDIR /opt/scripts
 RUN chmod a+x *.sh
 
-#ADD config.ini.php  /var/www/html/webtrees/data
+ADD  config/php.ini /usr/local/etc/php
 
 ENTRYPOINT ["/opt/scripts/entrypoint.sh"]

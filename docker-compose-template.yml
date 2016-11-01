@@ -1,6 +1,6 @@
 # WEBTREES DOCKER COMPOSE
 #
-# start   http://localhost:10080
+# start   http://localhost:§§PORT
 # default user: admin / changethepassword
 #
 
@@ -13,7 +13,7 @@ services:
     links:
       - webtrees-database:webtrees-database
     ports:
-      - "10080:80"
+      - "§§PORT:80"
     depends_on:
       - webtrees-database
       - webtrees-data-volumes
@@ -40,6 +40,6 @@ services:
     image: busybox
     container_name: webtrees-data-volumes
     volumes:
-      - /Users/mue/dockerdata/webtrees/var/lib/mysql:/var/lib/mysql
-      - /Users/mue/dockerdata/webtrees/var/www/html/webtrees/data:/var/www/html/webtrees/data
+      - §§FOLDER/webtrees/var/lib/mysql:/var/lib/mysql
+      - §§FOLDER/webtrees/var/www/html/webtrees/data:/var/www/html/webtrees/data
       
