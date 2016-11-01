@@ -12,7 +12,7 @@ webtrees dockerized by lomadi
 * initial user/password: **admin** / **changethepassword**
 
 ## Docker Images Used
- * [lomadi/webtrees]  (https://hub.docker.com/r/lomadi/webtrees/) webtrees container 
+ * [lomadi/webtrees](https://hub.docker.com/r/lomadi/webtrees/) webtrees container 
  * [mySQL](https://hub.docker.com/_/mysql/), offical mySQL container, use version 5.2.6 for webtrees
  * [busybox](https://hub.docker.com/_/busybox/), offical data container
  
