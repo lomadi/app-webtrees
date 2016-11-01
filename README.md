@@ -4,14 +4,14 @@ webtrees dockerized by lomadi
 * approx. time with medium fast internet connection: **5 minutes**
   * download from https://github.com/lomadi/app-webtrees 
   * run **./install.sh -f /yourpath/without/slash/at/the/end  -p 10080"**
-    * -f specifie the path to your data folder 
-    * -p port for webtree container
+    * -f path to your data folder 
+    * -p port for webtrees container
   * _$ docker-compose up -d_ 
   * open http://localhost:10080 in your browser (change the port, as specified in install.sh)
   * initial user/password: **admin** / **changethepassword**
 
 ## Docker Images Used
- * [lomadi/webtrees] 
+ * [lomadi/webtrees]  (https://hub.docker.com/r/lomadi/webtrees/) webtrees container prepared for compose 
  * [mySQL](https://hub.docker.com/_/mysql/), offical mySQL container
  * [busybox](https://hub.docker.com/_/busybox/), offical data container
  
