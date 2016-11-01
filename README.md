@@ -8,7 +8,7 @@ webtrees dockerized by lomadi
   * -f path to your data folder 
   * -p port for the webtrees container
 * run **docker-compose  up  -d** 
-* open http://localhost:10080 in your browser (change the port, as specified in install.sh)
+* open http://localhost:10080/webtrees/ in your browser (change the port, as specified in install.sh)
 * initial user/password: **admin** / **changethepassword**
 
 ## Docker Images Used
@@ -54,7 +54,7 @@ When docker-compose ist startet the first time, the webtrees database is initial
 
 #### start the application
 
-* http:/localhost:10080  (change the port as configured in install.sh)
+* http://localhost:10080/webtrees/ (change the port as configured in install.sh)
 * login with 
   * user: __admin__
   * password: __changethepassword__
