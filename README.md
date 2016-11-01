@@ -2,13 +2,14 @@
 webtrees dockerized by lomadi
 ## Hints
 * approx. time with medium fast internet connection: **5 minutes**
-  * download from https://github.com/lomadi/app-webtrees 
-  * run **./install.sh -f  /yourpath/without/slash/at/the/end  -p  10080"**
-    * -f path to your data folder 
-    * -p port for the webtrees container
-  * run **docker-compose  up  -d** 
-  * open http://localhost:10080 in your browser (change the port, as specified in install.sh)
-  * initial user/password: **admin** / **changethepassword**
+
+* download from https://github.com/lomadi/app-webtrees 
+* run **./install.sh -f  /yourpath/without/slash/at/the/end  -p  10080"**
+  * -f path to your data folder 
+  * -p port for the webtrees container
+* run **docker-compose  up  -d** 
+* open http://localhost:10080 in your browser (change the port, as specified in install.sh)
+* initial user/password: **admin** / **changethepassword**
 
 ## Docker Images Used
  * [lomadi/webtrees]  (https://hub.docker.com/r/lomadi/webtrees/) webtrees container 
@@ -28,9 +29,14 @@ webtrees dockerized by lomadi
 
 
 ## Installation Instructions 
-#### run **./install.sh -f  /yourpath/without/slash/at/the/end  -p  10080"**
 
-Run the install.sh script, which will generate a loal volume on your machine and copy the initial config for webtrees to ...var/www/html/webtrees/data. 
+#### run install.sh 
+
+```
+$./install.sh -f  /yourpath/without/slash/at/the/end  -p  10080
+```
+
+install.sh generates a local volume on your machine and copies the initial config for webtrees to ...var/www/html/webtrees/data. 
 
 In the second step the script will generate out of docker-compose-template.yml the docker-compose.yml.
 
