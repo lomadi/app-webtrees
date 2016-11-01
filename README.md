@@ -32,7 +32,7 @@ webtrees dockerized by lomadi
 
 Run the install.sh script, which will generate a loal volume on your machine and copy the initial config for webtrees to ...var/www/html/webtrees/data. 
 
-In the second step it well generate based on docker-compose-template.yml the docker-compose.yml
+In the second step the script will generate out of docker-compose-template.yml the docker-compose.yml.
 
 The mysql container is initialzed with a default user for the webtrees appilcation. 
 
