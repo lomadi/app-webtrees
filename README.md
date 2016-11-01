@@ -3,16 +3,16 @@ webtrees dockerized by lomadi
 ## Hints
 * approx. time with medium fast internet connection: **5 minutes**
   * download from https://github.com/lomadi/app-webtrees 
-  * run **./install.sh -f /yourpath/without/slash/at/the/end  -p 10080"**
+  * run **./install.sh -f  /yourpath/without/slash/at/the/end  -p  10080"**
     * -f path to your data folder 
-    * -p port for webtrees container
-  * _$ docker-compose up -d_ 
+    * -p port for the webtrees container
+  * run **docker-compose  up  -d** 
   * open http://localhost:10080 in your browser (change the port, as specified in install.sh)
   * initial user/password: **admin** / **changethepassword**
 
 ## Docker Images Used
- * [lomadi/webtrees]  (https://hub.docker.com/r/lomadi/webtrees/) webtrees container prepared for compose 
- * [mySQL](https://hub.docker.com/_/mysql/), offical mySQL container
+ * [lomadi/webtrees]  (https://hub.docker.com/r/lomadi/webtrees/) webtrees container 
+ * [mySQL](https://hub.docker.com/_/mysql/), offical mySQL container, use version 5.2.6 for webtrees
  * [busybox](https://hub.docker.com/_/busybox/), offical data container
  
 ## Install Environment Variables
@@ -28,32 +28,14 @@ webtrees dockerized by lomadi
 
 
 ## Installation Instructions 
+#### run **./install.sh -f  /yourpath/without/slash/at/the/end  -p  10080"**
 
-#### docker-compose.yml
-change the port 10080 to some free port and inlcude it in your proxy server
-```
-webtrees:
-    image:  lomadi/webtrees:latest
-    container_name:  webtrees
-    links:
-      - webtrees-database:webtrees-database
-    ports:
-      - "10080:80"
-    depends_on:
-      - webtrees-database
-      - webtrees-data-volumes
-    volumes_from: 
-      - webtrees-data-volumes
-```
-change the path to mount the mysql database and the webtrees data directory to you local filesystem
-```
-  webtrees-data-volumes:
-    image: busybox
-    container_name: webtrees-data-volumes
-    volumes:
-      - /Users/mue/dockerdata/webtrees/var/lib/mysql:/var/lib/mysql
-      - /Users/mue/dockerdata/webtrees/var/www/html/webtrees/data:/var/www/html/webtrees/data
-```
+Run the install.sh script, which will generate a loal volume on your machine and copy the initial config for webtrees to ...var/www/html/webtrees/data. 
+
+In the second step it well generate based on docker-compose-template.yml the docker-compose.yml
+
+The mysql container is initialzed with a default user for the webtrees appilcation. 
+
 #### startup the docker conatainers 
 ```
 $ docker-compose up -d
@@ -66,7 +48,7 @@ When docker-compose ist startet the first time, the webtrees database is initial
 
 #### start the application
 
-* http:/localhost:10080
+* http:/localhost:10080  (change the port as configured in install.sh)
 * login with 
   * user: __admin__
   * password: __changethepassword__
