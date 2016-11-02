@@ -1,3 +1,6 @@
+docker images
+docker rmi $(docker images -q)
+
 docker ps -aq
 docker rm  $(docker ps -aq)
 

@@ -44,8 +44,8 @@ updateComposeFile()
         cp docker-compose.yml docker-compose.yml.old
     fi    
     cp docker-compose-template.yml docker-compose.yml
-    sed -i -e  "s@§§FOLDER@${folder}@g" docker-compose.yml
-    sed -i -e  "s@§§PORT@${port}@g"     docker-compose.yml
+    sed -i  "s@§§FOLDER@${folder}@g" docker-compose.yml
+    sed -i  "s@§§PORT@${port}@g"     docker-compose.yml
 }
 
 createFolders()
@@ -59,6 +59,7 @@ copyInitFiles()
     if [[ ! -d $folder/webtrees/var/www/html/webtrees/data/config.ini.php ]]; then
         cp images/webtrees/config/config.ini.php   $folder/webtrees/var/www/html/webtrees/data/config.ini.php 
     fi
+    chown -R www-data:www-data  *
 }
 
 checkParameters() 

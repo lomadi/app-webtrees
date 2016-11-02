@@ -3,8 +3,10 @@ webtrees dockerized by lomadi
 ## Hints
 * approx. time with medium fast internet connection: **5 minutes**
 
-* download from https://github.com/lomadi/app-webtrees 
-* run **./install.sh -f  /yourpath/without/slash/at/the/end  -p  10080"**
+* download from https://github.com/lomadi/app-webtrees
+  * e.g. wget https://github.com/lomadi/app-webtrees/archive/master.zip; unzip master.zip; rm master.zip
+  * cd app-webtrees-master
+* run **sudo ./install.sh -f  /yourpath/without/slash/at/the/end  -p  portnumber"**
   * -f path to your data folder 
   * -p port for the webtrees container
 * run **docker-compose  up  -d** 
@@ -33,7 +35,7 @@ webtrees dockerized by lomadi
 #### run install.sh 
 
 ```
-$./install.sh -f  /yourpath/without/slash/at/the/end  -p  10080
+$sudo ./install.sh -f  /yourpath/without/slash/at/the/end  -p  portnumber
 ```
 
 install.sh generates a local volume on your machine and copies the initial config for webtrees to ...var/www/html/webtrees/data. 
@@ -42,19 +44,17 @@ In the second step the script will generate out of docker-compose-template.yml t
 
 The mysql container is initialzed with a default user for the webtrees appilcation. 
 
-#### startup the docker conatainers 
+#### startup the docker containers 
 ```
 $ docker-compose up -d
-```
-if everything went OK, you shoud see two container running with the command
-```
 $ docker ps 
 ```
-When docker-compose ist startet the first time, the webtrees database is initialized with default values (stored in _database-dump/dump.sql_ and the default config file is copied to the webtrees data directory (stored in _images/webtrees/config/config.ini.php_)
+When docker-compose ist startet the first time, the webtrees database is initialized with default values (stored in _database-dump/dump.sql_.
+
 
 #### start the application
 
-* http://localhost:10080/webtrees/ (change the port as configured in install.sh)
+* http://localhost:portnumber/webtrees/ (change the port as configured in install.sh)
 * login with 
   * user: __admin__
   * password: __changethepassword__
