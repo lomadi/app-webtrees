@@ -59,7 +59,7 @@ copyInitFiles()
     if [[ ! -d $folder/webtrees/var/www/html/webtrees/data/config.ini.php ]]; then
         cp images/webtrees/config/config.ini.php   $folder/webtrees/var/www/html/webtrees/data/config.ini.php 
     fi
-    chown -R www-data:www-data  *
+    chown -R www-data:www-data  $folder/webtrees/var/www/html/webtrees/data
 }
 
 checkParameters() 
