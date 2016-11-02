@@ -1,5 +1,5 @@
 # WEBTREES application
-webtrees dockerized by lomadi
+dockerized https://github.com/fisharebest/webtrees 
 ## Hints
 * approx. time with medium fast internet connection: **5 minutes**
 
