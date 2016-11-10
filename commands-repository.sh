@@ -15,6 +15,8 @@ docker-compose down
 docker logs webtrees
 docker exec -it webtrees /bin/bash
 
+sudo du -d 2 -h /var/lib/docker/devicemapper | grep 'docker inspect -f "{{.Id}}" webtrees'
+
 
 # DB 
 docker exec -it webtrees-database /bin/bash
